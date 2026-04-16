@@ -1,0 +1,39 @@
+# Test: unauth_internal_header_spoof
+# Time: 2026-03-20 13:10:41
+# Command:
+swaks --server localhost --port 25 --timeout 20 --to vagrant@myreceiver.com --from attacker@evil.test --header From:\ admin@mysender.com --header Subject:\ \[TEST1\]\ unauth\ internal\ header\ spoof --body Unauthenticated\ sender\ with\ internal\ From\ header. 
+
+=== Trying localhost:25...
+=== Connected to localhost.
+<-  220 mail.mysender.com ESMTP Postfix (Ubuntu)
+ -> EHLO mail.mysender.com
+<-  250-mail.mysender.com
+<-  250-PIPELINING
+<-  250-SIZE 10240000
+<-  250-VRFY
+<-  250-ETRN
+<-  250-ENHANCEDSTATUSCODES
+<-  250-8BITMIME
+<-  250-DSN
+<-  250 CHUNKING
+ -> MAIL FROM:<attacker@evil.test>
+<-  250 2.1.0 Ok
+ -> RCPT TO:<vagrant@myreceiver.com>
+<-  250 2.1.5 Ok
+ -> DATA
+<-  354 End data with <CR><LF>.<CR><LF>
+ -> Date: Fri, 20 Mar 2026 13:10:41 +0000
+ -> To: vagrant@myreceiver.com
+ -> From: admin@mysender.com
+ -> Subject: [TEST1] unauth internal header spoof
+ -> Message-Id: <20260320131041.002527@mail.mysender.com>
+ -> X-Mailer: swaks v20201014.0 jetmore.org/john/code/swaks/
+ -> 
+ -> Unauthenticated sender with internal From header.
+ -> 
+ -> 
+ -> .
+<-  250 2.0.0 Ok: queued as 367DB3F0CB
+ -> QUIT
+<-  221 2.0.0 Bye
+=== Connection closed with remote host.

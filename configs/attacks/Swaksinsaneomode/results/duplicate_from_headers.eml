@@ -1,0 +1,6 @@
+From: admin@mysender.com
+From: attacker@evil.com
+To: vagrant@myreceiver.com
+Subject: [LAB] duplicate From headers
+
+This is a local SMTP lab test.

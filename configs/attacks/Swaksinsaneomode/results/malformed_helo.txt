@@ -1,0 +1,39 @@
+# Test: malformed_helo
+# Time: 2026-03-20 13:10:42
+# Command:
+swaks --server localhost --port 25 --timeout 20 --to vagrant@myreceiver.com --from attacker@evil.test --ehlo \[127.0.0.1 --header From:\ attacker@evil.test --header Subject:\ \[TEST10\]\ malformed\ EHLO --body Malformed\ EHLO\ string. 
+
+=== Trying localhost:25...
+=== Connected to localhost.
+<-  220 mail.mysender.com ESMTP Postfix (Ubuntu)
+ -> EHLO [127.0.0.1
+<-  250-mail.mysender.com
+<-  250-PIPELINING
+<-  250-SIZE 10240000
+<-  250-VRFY
+<-  250-ETRN
+<-  250-ENHANCEDSTATUSCODES
+<-  250-8BITMIME
+<-  250-DSN
+<-  250 CHUNKING
+ -> MAIL FROM:<attacker@evil.test>
+<-  250 2.1.0 Ok
+ -> RCPT TO:<vagrant@myreceiver.com>
+<-  250 2.1.5 Ok
+ -> DATA
+<-  354 End data with <CR><LF>.<CR><LF>
+ -> Date: Fri, 20 Mar 2026 13:10:42 +0000
+ -> To: vagrant@myreceiver.com
+ -> From: attacker@evil.test
+ -> Subject: [TEST10] malformed EHLO
+ -> Message-Id: <20260320131042.002562@mail.mysender.com>
+ -> X-Mailer: swaks v20201014.0 jetmore.org/john/code/swaks/
+ -> 
+ -> Malformed EHLO string.
+ -> 
+ -> 
+ -> .
+<-  250 2.0.0 Ok: queued as 499783F0CB
+ -> QUIT
+<-  221 2.0.0 Bye
+=== Connection closed with remote host.

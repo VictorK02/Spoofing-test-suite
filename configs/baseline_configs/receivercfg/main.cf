@@ -1,0 +1,12 @@
+myhostname = mail.myreceiver.com
+mydomain = myreceiver.com
+mynetworks = 127.0.0.0/8
+smtpd_relay_restrictions = permit_mynetworks defer_unauth_destination
+mydestination = localhost, localhost.localdomain, myreceiver.com
+smtpd_sender_restrictions = reject_unknown_sender_domain
+
+# Milters for Verification
+milter_protocol = 6
+milter_default_action = reject
+smtpd_milters = inet:localhost:8891,inet:localhost:8893
+non_smtpd_milters = $smtpd_milters

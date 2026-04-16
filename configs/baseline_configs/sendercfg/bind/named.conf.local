@@ -1,0 +1,10 @@
+# Add this to /etc/bind/named.conf.local
+zone "mysender.com" {
+    type master;
+    file "/etc/bind/db.mysender.com";
+};
+
+zone "myreceiver.com" {
+    type master;
+    file "/etc/bind/db.myreceiver.com";
+};
