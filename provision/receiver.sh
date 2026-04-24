@@ -35,4 +35,6 @@ EOF
 
 sudo systemctl restart ssh
 
+echo "export PS1='\[\e[1;31m\][RECEIVER]\[\e[0m\]:\w\$ '" >> /home/vagrant/.bashrc
+
 source /configs/baseline_configs/receivercfg/run.sh

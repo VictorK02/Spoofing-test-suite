@@ -25,3 +25,5 @@ sudo chmod 600 /home/vagrant/.ssh/config
 cat <<EOF | sudo tee -a /etc/hosts
 192.168.56.20  mail.myreceiver.com myreceiver.com receiver
 EOF
+
+echo "export PS1='\[\e[1;31m\][ATTACKER]\[\e[0m\]:\w\$ '" >> /home/vagrant/.bashrc
