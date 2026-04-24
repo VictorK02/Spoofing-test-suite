@@ -1,6 +1,0 @@
-# Test: auth_legit_send
-# Time: 2026-03-20 13:10:42
-# Command:
-swaks --server localhost --port 587 --timeout 20 --tls --to vagrant@myreceiver.com --from vagrant@mysender.com --auth --auth-user vagrant@mysender.com --auth-password changeme --auth-type LOGIN --header From:\ vagrant@mysender.com --header Subject:\ \[TEST12\]\ authenticated\ legitimate\ send --body Control\ test:\ valid\ authenticated\ send. 
-
-Unknown option: auth-type

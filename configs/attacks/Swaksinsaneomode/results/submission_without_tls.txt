@@ -1,6 +1,0 @@
-# Test: submission_without_tls
-# Time: 2026-03-20 13:10:42
-# Command:
-swaks --server localhost --port 587 --timeout 20 --to vagrant@myreceiver.com --from vagrant@mysender.com --auth --auth-user vagrant@mysender.com --auth-password changeme --auth-type LOGIN --header From:\ vagrant@mysender.com --header Subject:\ \[TEST11\]\ submission\ without\ TLS --body Attempt\ authenticated\ submission\ without\ STARTTLS. 
-
-Unknown option: auth-type

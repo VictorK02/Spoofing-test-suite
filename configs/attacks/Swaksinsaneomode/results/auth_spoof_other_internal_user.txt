@@ -1,6 +1,0 @@
-# Test: auth_spoof_other_internal_user
-# Time: 2026-03-20 13:10:42
-# Command:
-swaks --server localhost --port 587 --timeout 20 --tls --to vagrant@myreceiver.com --from admin@mysender.com --auth --auth-user vagrant@mysender.com --auth-password changeme --auth-type LOGIN --header From:\ admin@mysender.com --header Subject:\ \[TEST13\]\ auth\ spoof\ other\ internal\ user --body Authenticated\ as\ vagrant@mysender.com\ but\ claiming\ another\ internal\ sender. 
-
-Unknown option: auth-type

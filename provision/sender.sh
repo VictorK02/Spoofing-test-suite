@@ -12,4 +12,23 @@ postconf -e "mynetworks = 127.0.0.0/8 192.168.56.0/24"
 
 systemctl restart postfix
 
+# ssh
+echo "--- Configuring SSH for Password Access ---"
+
+echo "vagrant:vagrant" | sudo chpasswd
+sudo rm -f /etc/ssh/sshd_config.d/*.conf
+
+cat <<EOF | sudo tee /etc/ssh/sshd_config
+Include /etc/ssh/sshd_config.d/*.conf
+PasswordAuthentication yes
+KbdInteractiveAuthentication yes
+ChallengeResponseAuthentication yes
+UsePAM yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+EOF
+
+sudo systemctl restart ssh
+
 source /configs/baseline_configs/sendercfg/run.sh

@@ -8,3 +8,8 @@ zone "myreceiver.com" {
     type master;
     file "/etc/bind/db.myreceiver.com";
 };
+
+zone "company.com" {
+    type master;
+    file "/etc/bind/db.company.com";
+};
