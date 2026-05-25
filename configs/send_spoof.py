@@ -1,19 +1,18 @@
 import subprocess
+import time
 
-# Configuration
 SERVER = "localhost"
 RECIPIENT = "vagrant@myreceiver.com"
 ENVELOPE_FROM = "vagrant@mysender.com"
 
-# Payloads
 test_payloads = [
-    'From: admin@company.com>\nTo: vagrant@myreceiver.com\nSubject: Test 1',
-    'From: ,<admin@company.com>\nTo: vagrant@myreceiver.com\nSubject: Test 2',
-    'From: admin@company.com, admin@department.company.com\nTo: vagrant@myreceiver.com\nSubject: Test 3',
-    'From: admin@company.com \\\nTo: vagrant@myreceiver.com\nSubject: Test 4',
-    'From: admin@company.com )\nTo: vagrant@myreceiver.com\nSubject: Test 5',
-    'From:vagrant@mysender.com:From:<admin@company.com>\nTo: vagrant@myreceiver.com\nSubject: Test 6',
-    'From:vagrant@mysender.com\nTo: vagrant@myreceiver.com\nSubject: Normal email for test'
+    'From: ceo@company.com>\nTo: vagrant@myreceiver.com\nSubject: Attack 1',
+    'From: ceo@company.com\\\nTo: vagrant@myreceiver.com\nSubject: Attack 2',
+    'From: ceo@company.com) \nTo: vagrant@myreceiver.com\nSubject: Attack 3',
+    'From: ceo@company.com, ceo@department.company.com\nTo: vagrant@myreceiver.com\nSubject: Attack 4',
+    'From: ,<ceo@company.com>\nTo: vagrant@myreceiver.com\nSubject: Attack 5',
+    'From: vagrant@mysender.com:From: <ceo@company.com>\nTo: vagrant@myreceiver.com\nSubject: Attack 6',
+    'From: vagrant@mysender.com\nTo: vagrant@myreceiver.com\nSubject: Normal email for test'
 ]
 
 def run_swaks():
@@ -27,11 +26,12 @@ def run_swaks():
         ]
         
         try:
-            # We run it and wait, but don't obsess over the return code
             subprocess.run(cmd, capture_output=True, text=True)
-            print(f"Test {i} sent. Check logs/mailbox for results.")
+            print(f"Attack {i} sent. Check logs/mailbox for results.")
         except Exception as e:
-            print(f"Test {i} failed to send: {e}")
+            print(f"Attack {i} failed to send: {e}")
+        
+        time.sleep(1)
 
 if __name__ == "__main__":
     print(f"Starting spoof tests to {RECIPIENT}...")
