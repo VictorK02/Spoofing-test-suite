@@ -38,15 +38,12 @@ This project uses Vagrant to provision and run a local virtual machine.
 	setconfig (default/strict/rspamd)
 	```
 
-2. 
 
 ## UI-setup with thunderbird
 
 ```bash
 sudo apt install thunderbird -y
 ```
-
-
 
 
 ## Useful commands
@@ -69,4 +66,25 @@ to run the attacks on the sending server, run:
 ```bash
 python3 /configs/send_spoof.py
 ```
+
+## Versions used
+- Vagrant 2.4.9
+- OpenDMARC Filter v1.4.2
+- OpenDKIM Filter v2.11.0
+- Rspamd 2.7
+- Dovecot 2.3.16
+- BIND 9.18.39-0ubuntu0.22.04.3-Ubuntu 
+- postfix: mail_version = 3.6.4
+- thunderbird: 140.9.1esr
+- ubuntu: 
+	- PRETTY_NAME="Ubuntu 22.04.5 LTS"
+	- NAME="Ubuntu"
+	- VERSION_ID="22.04"
+	- VERSION="22.04.5 LTS (Jammy Jellyfish)"
+- kali:
+	- PRETTY_NAME="Kali GNU/Linux Rolling"
+	- NAME="Kali GNU/Linux"
+	- VERSION_ID="2026.1"
+	- VERSION="2026.1"
+	- VERSION_CODENAME=kali-rolling
 
