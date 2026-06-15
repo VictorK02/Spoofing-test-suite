@@ -1,4 +1,7 @@
-# Vagrant Environment
+#Reproducible laboratory environment for email
+spoofing analysis
+
+## Vagrant Environment
 
 This project uses Vagrant to provision and run a local virtual machine.
 
