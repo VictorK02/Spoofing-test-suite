@@ -1,5 +1,4 @@
-# Reproducible laboratory environment for email
-spoofing analysis
+# Reproducible laboratory environment for email spoofing analysis
 
 ## Vagrant Environment
 
